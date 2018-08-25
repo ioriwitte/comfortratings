@@ -1,24 +1,4 @@
-
-{"spots":{"spot":
-[           {"name":"Bright Breeze","duration":"120","rating":"449568","colleagues":"81669","mbid":"","url":"http://www.last.fm/music/Rihanna/_/Work","streamable":{"#text":"0","fulltrack":"0"},"zone":{"name":"A101","mbid":"db36a76f-4cdf-43ac-8cd0-5e48092d2bae","url":"http://www.last.fm/music/Rihanna"}},
- 
-                    {"name":"Cool Noise","duration":"60","rating":"1931615","colleagues":"193074","mbid":"","url":"http://www.last.fm/music/Justin+Bieber/_/Sorry","streamable":{"#text":"0","fulltrack":"0"},"zone":{"name":"A102","mbid":"e0140a67-e4d1-4f13-8a01-364355bee46e","url":"http://www.last.fm/music/Justin+Bieber"}},
- 
-                    {"name":"Bright Noise","duration":"360","rating":"2547983","colleagues":"266414","mbid":"","url":"http://www.last.fm/music/Adele/_/Hello","streamable":{"#text":"0","fulltrack":"0"},"zone":{"name":"A103","mbid":"cc2c9c3c-b7bc-4b8b-84d8-4fbd8779e493","url":"http://www.last.fm/music/Adele"}},
-                   
-{"name":"Cool Shadow","duration":"720","rating":"1082955","colleagues":"144520","mbid":"","url":"http://www.last.fm/music/Justin+Bieber/_/Love+Yourself","streamable":{"#text":"0","fulltrack":"0"},"zone":{"name":"A104","mbid":"e0140a67-e4d1-4f13-8a01-364355bee46e","url":"http://www.last.fm/music/Justin+Bieber"}},
- 
-                    {"name":"Cool Breeze","duration":"60","rating":"603650","colleagues":"73169","mbid":"","url":"http://www.last.fm/music/Zayn/_/PILLOWTALK","streamable":{"#text":"0","fulltrack":"0"},"zone":{"name":"A201","mbid":"","url":"http://www.last.fm/music/Zayn"}},
- 
-{"name":"Noisy Heat","duration":"240","rating":"975760","colleagues":"158578","mbid":"","url":"http://www.last.fm/music/Coldplay/_/Adventure+Of+A+Lifetime","streamable":{"#text":"0","fulltrack":"0"},"zone":{"name":"A202","mbid":"cc197bad-dc9c-440d-a5b5-d52ba2e14234","url":"http://www.last.fm/music/Coldplay"}},
-                    
-{"name":"Breezy Shadow","duration":"60","rating":"1006056","colleagues":"136612","mbid":"","url":"http://www.last.fm/music/Twenty+One+Pilots/_/Stressed+Out","streamable":{"#text":"0","fulltrack":"0"},"zone":{"name":"A203","mbid":"a6c6897a-7415-4f8d-b5a5-3a5e05f3be67","url":"http://www.last.fm/music/Twenty+One+Pilots"}},
-
-{"name":"Warm Breeze","duration":"360","rating":"2496849","colleagues":"298616","mbid":"","url":"http://www.last.fm/music/The+Weeknd/_/Can%27t+Feel+My+Face","streamable":{"#text":"0","fulltrack":"0"},"zone":{"name":"A204","mbid":"c8b03190-306c-4120-bb0b-6f2ebfc06ea9","url":"http://www.last.fm/music/The+Weeknd"}},
-
-{"name":"Dark Breeze","duration":"720","rating":"1825704","listeners":"223906","mbid":"","url":"http://www.last.fm/music/Drake/_/Hotline+Bling","streamable":{"#text":"0","fulltrack":"0"},"zone":{"name":"A301","mbid":"b49b81cc-d5b7-4bdd-aadb-385df8de69a6","url":"http://www.last.fm/music/Drake"}},
-
-{"name":"Bright Heat","duration":"120","rating":"1993998","listeners":"214792","mbid":"","url":"http://www.last.fm/music/Justin+Bieber/_/What+Do+You+Mean%3F","streamable":{"#text":"0","fulltrack":"0"},"zone":{"name":"A302","mbid":"e0140a67-e4d1-4f13-8a01-364355bee46e","url":"http://www.last.fm/music/Justin+Bieber"}},
+{"spots":{"spot":[{"name":"Bright Breeze","duration":"120","rating":"449568","colleagues":"81669","zone":{"name":"A101"}},{"name":"Cool Noise","duration":"60","rating":"1931615","colleagues":"193074","zone":{"name":"A102"}},{"name":"Bright Noise","duration":"360","rating":"2547983","colleagues":"266414","zone":{"name":"A103"}},{"name":"Cool Shadow","duration":"720","rating":"1082955","colleagues":"144520","zone":{"name":"A104"}},{"name":"Cool Breeze","duration":"60","rating":"603650","colleagues":"73169","zone":{"name":"A201"}},{"name":"Noisy Heat","duration":"240","rating":"975760","colleagues":"158578","zone":{"name":"A202"}},{"name":"Breezy Shadow","duration":"60","rating":"1006056","colleagues":"136612","zone":{"name":"A203"}},{"name":"Warm Breeze","duration":"360","rating":"2496849","colleagues":"298616","zone":{"name":"A204"}},{"name":"Dark Breeze","duration":"720","rating":"1825704","listeners":"223906","mbid":"","url":"http://www.last.fm/music/Drake/_/Hotline+Bling","streamable":{"#text":"0","fulltrack":"0"},"zone":{"name":"A301","mbid":"b49b81cc-d5b7-4bdd-aadb-385df8de69a6","url":"http://www.last.fm/music/Drake"}},{"name":"Bright Heat","duration":"120","rating":"1993998","listeners":"214792","zone":{"name":"A302"}},
  
 {"name":"Breezy Noise)","duration":"60","rating":"3166691","listeners":"316471","mbid":"","url":"http://www.last.fm/music/Major+Lazer/_/Lean+On+(feat.+M%C3%98+&+DJ+Snake)","streamable":{"#text":"0","fulltrack":"0"},"zone":{"name":"A303","mbid":"75be165a-ad83-4d12-bd28-f589a15c479f","url":"http://www.last.fm/music/Major+Lazer"}},
 
