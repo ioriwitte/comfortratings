@@ -1,0 +1,177 @@
+
+<!-- saved from url=(0032)http://127.0.0.1:4000/ch7-2.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Clustering Comfort Spots in Building</title>
+    <meta name="description" content="Practical D3">
+    <meta name="author" content="Tarek Amr, @gr33ndata, modified by Jori Witte @ioriwitte, Aug 24 2018">
+  <style>
+  </style><link id="shut-up-css" rel="stylesheet" href="data:text/css;base64,IA=="></head>
+  
+  <body>
+
+  
+
+  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <script type="text/javascript">
+
+
+var comfortspots = { 
+   'name': 'Comfort Spots StarsHub Building'  , 'children': [
+        {'name': 'Bright Spots', 'children': [
+            {'name': 'Bright Spot (A1.01)', 'value': 24023},
+            {'name': 'Bright Spot (A2.02)', 'value': 8621},
+            {'name': 'Bright Spot (A3.03)', 'value': 8635},
+            {'name': 'Breezy Spot (A2.01)', 'value': 955},
+          ]
+        },
+        {'name': 'Cool to Warm Spots', 'children': [
+            {'name': 'Cool Spot (AU.02)', 'value': 6275},
+            {'name': 'Warm Spot (A1.03)', 'value': 1472},
+            {'name': 'Cool Spot (AU.01)', 'value': 25149},
+          ]
+        },
+        {'name': 'Warm Spot (AE.02)', 'value': 5971},
+      ]
+};
+
+
+var w = 600, h = 400;
+var svg = d3.select('body').append('svg')
+    .attr('width', w)
+    .attr('height', h);
+
+var colours = d3.scale.category10();
+
+// See commented code for using treemap
+var tm = d3.layout.treemap()
+    .size([w, h]);
+
+// Using pack layout here
+var pack = d3.layout.pack();
+var dirScale = d3.scale.linear().domain([0,1]).range([0,h]);
+var invScale = d3.scale.linear().domain([1,0]).range([0,h]);
+
+
+svg.selectAll("circle")
+   //.data(tm(comfortspots))
+   .data(pack(comfortspots))
+   .enter()
+   .append("circle") 
+   .attr("cx", function(d,i){ return invScale(d.x); }) 
+   .attr("cy", function(d,i){ return invScale(d.y); }) 
+   .attr("r", function(d,i){ return dirScale(d.r); }) 
+   .attr("fill", function(d,i){
+      if (d.depth == 0) {
+        return '#EEE';
+      } else if (d.depth == 1) {
+        return '#BBB';
+      } else {
+        return colours(d.parent.name);;
+      }  
+    })
+   .attr("stroke", "#FFF")
+   .attr("stroke-width", 2);
+
+
+svg.selectAll("text")
+   //.data(tm(comfortspots))
+   .enter()
+   .append("text") 
+   .attr("x", function(d,i){ return (d.x + 0.5 * d.dx); }) 
+   .attr("y", function(d,i){ return (d.y + 0.5 * d.dy); }) 
+   .text(function(d,i){ 
+      return d.children? "" : d.name ;  
+    }) 
+   .style("text-anchor", "middle")
+   .attr("font-size", "8")
+   .style("fill", "#FFF");
+
+
+svg.selectAll("text")
+   .data(pack(comfortspots))
+   .enter()
+   .append("text") 
+   .attr("x", function(d,i){ 
+      return d.x; 
+    }) 
+   .attr("y", function(d,i){ 
+      return d.children? d.y - d.r + 25 : d.y; 
+    }) 
+   .text(function(d,i){ 
+      return d.name;  
+    }) 
+   .style("text-anchor", "middle")
+   .attr("font-size", function(d,i){
+      return 0;
+      return 9*(3 - d.depth);  
+    })
+   .style("fill", "#000");
+
+  </script>
+
+  <svg width="600" height="400">
+
+    <!-- Building Spot -->
+    <circle cx="200" cy="200" r="200" fill="#EEE" stroke="#FFF" stroke-width="2"></circle>
+
+    <!-- Building Spot -->
+    <circle cx="267.711452733809" cy="258.7086930826227" r="105.09986300262175" fill="#BBB" stroke="#FFF" stroke-width="2"></circle>
+
+    <!-- Warm Spot -->
+    <circle cx="310.3158563941472" cy="235.0950005780337" r="56.38906661255724" fill="#ff0505" stroke="#FFF" stroke-width="2"></circle>
+
+    <!-- Cold Spot -->
+    <circle cx="253.20092013541603" cy="304.90399894293427" r="33.80745325683465" fill="#2820c2" stroke="#FFF" stroke-width="2"></circle>
+
+    <!-- Cold Spot -->
+    <circle cx="202.49801844245135" cy="260.2130103494754" r="33.78003598153779" fill="#2820c2" stroke="#FFF" stroke-width="2"></circle>
+
+    <!-- Warm Spot -->
+    <circle cx="247.52107410959644" cy="260.2130103494754" r="11.243019685607251" fill="#ff7f0e" stroke="#FFF" stroke-width="2"></circle>
+
+
+    <circle cx="119.44646096698021" cy="128.4492206181665" r="92.25777670341095" fill="#BBB" stroke="#FFF" stroke-width="2"></circle>
+
+    <!-- Bright Spot -->
+    <circle cx="129.44014733151397" cy="149.7087890530131" r="57.69546072256737" fill="#ffdf05" stroke="#FFF" stroke-width="2"></circle>
+
+    <!-- Bright Spot -->
+    <circle cx="80.57692725858603" cy="78.31380483945938" r="28.819613378706887" fill="#fff605" stroke="#FFF" stroke-width="2"></circle>
+
+    <!-- Bright Spot -->
+    <circle cx="123.35492619742259" cy="78.31380483945938" r="13.958385560129697" fill="#ffdf05" stroke="#FFF" stroke-width="2"></circle>
+
+    <!-- Breezy Spot -->
+    <circle cx="239.81708414320525" cy="128.4492206181665" r="28.112846472814102" fill="#70069c" stroke="#FFF" stroke-width="2"></circle>
+
+   <!-- Smallest yellow circle on the right -->
+    <text x="130" y="75.5" font-size="8" style="text-anchor: middle; fill: rgb(0, 0, 0);">Bright Spot (A1.01)</text>
+    <!-- Largest yellow circle at the bottom -->
+    <text x="130.5" y="150" font-size="8" style="text-anchor: middle; fill: rgb(0, 0, 0);">Bright Spot (A2.02)</text>
+    <!-- Medium yellow circle on the left -->
+    <text x="60.5" y="90" font-size="8" style="text-anchor: middle; fill: rgb(0, 0, 0);">Bright Spot (A3.03)</text>
+
+    <!-- Bottom medium sized blue circle -->
+    <text x="250" y="320.5" font-size="8" style="text-anchor: middle; fill: rgb(255, 255, 0);">Cool Spot (AU.02)</text>
+    <!-- Right large red circle -->
+    <text x="310" y="230.5" font-size="8" style="text-anchor: middle; fill: rgb(0, 0, 0);">Warm Spot (A1.03)</text>
+    <!-- Top medium sized blue circle -->
+    <text x="200" y="270.5" font-size="8" style="text-anchor: middle; fill: rgb(255, 255, 0);">Cool Spot (AU.01)</text>
+    <!-- Top medium sized blue circle -->
+    <text x="220" y="220.5" font-size="8" style="text-anchor: middle; fill: rgb(0, 0, 0);">Warm Spot (AE.02)</text>
+
+
+<!-- Outer Circle that represents the Office Building -->
+    <text x="303.5" y="45.5" font-size="10" style="text-anchor: middle; fill: rgb(0, 0, 0);">StarsHub Office Building</text>
+<!-- Left top medium sized Circle (cluster of Bright Spots) -->
+    <text x="70.5" y="230.5" font-size="10" style="text-anchor: middle; fill: rgb(0, 0, 0);">Bright Spots Available</text>
+<!-- Right bottom medium sized Circle (cluster of Bright Spots) -->
+    <text x="244" y="380" font-size="10" style="text-anchor: middle; fill: rgb(0, 0, 0);">Cool & Warm Spots Available</text>
+<!-- Left medium sized Circle (cluster of Bright Spots) -->
+    <text x="260.5" y="95.5" font-size="10" style="text-anchor: middle; fill: rgb(0, 0, 0);">Breezy Spot (A2.01)</text>
+
+
+  </svg>
+ 
+</body>
+</html>

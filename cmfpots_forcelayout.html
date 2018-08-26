@@ -1,0 +1,120 @@
+<html>
+  <head>
+    <title>Comfort Work Spots in StarsHub Building</title>
+    <meta name="description" content="Practical D3">
+    <meta name="author" content="Tarek Amr, @gr33ndata, modified by Jori Witte @ioriwitte, Aug 24 2018">
+  </head>
+  <body>
+  </body>
+
+  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <script type="text/javascript">
+
+var work_spots = [
+  {'country': 'Warm', 'wins': 5, 'zone': '2nd Floor'},
+  {'country': 'Bright', 'wins': 4, 'zone': '2nd Floor'},
+  {'country': 'Bright', 'wins': 4, 'zone': '1st Floor'},
+  {'country': 'Cold', 'wins': 2, 'zone': '2nd Floor'},
+  {'country': 'Breezy', 'wins': 1, 'zone': '1st Floor'},
+  {'country': 'Bright', 'wins': 1, 'zone': '1st Floor'}
+];
+
+var spots_chart = {
+  mode: 'single',
+  toggle_mode: function(){
+    this.mode = (this.mode == 'single')? 'double' : 'single';
+  },
+  focus: function(zone){
+  if (this.mode == 'double'){
+    return (zone == '2nd Floor')? {'x': 0.35*w ,'y': 0.5*h} : {'x': 0.65*w ,'y': 0.5*h};
+    } else {
+      return {'x': 0.5*w ,'y': 0.5*h}
+    }  
+  }
+};
+
+var w = 840, h = 520;
+
+var svg = d3.select('body').append('svg')
+    .style("background", "#FFF")
+    .attr('width', w)
+    .attr('height', h);
+
+
+var force = d3.layout.force()
+    .size([w, h])
+    .charge(function(d){
+      return -120*d.wins*d.wins;
+     })
+    .gravity(0);
+
+force.nodes(work_spots);
+
+
+var node_shape = svg.selectAll('circle')
+      .data(force.nodes())
+      .enter()
+      .append('circle')
+      .attr('r', function(d){
+        return 19*d.wins;
+       })
+      .on('click', function(){
+        spots_chart.toggle_mode();
+        force.start();
+      })
+      .style("fill", function(d,i){ 
+        return (d.zone == '2nd Floor')? '#f57931' : '#6e0acc';
+       })
+      .style("opacity", 0.88);
+
+var node_text = svg.selectAll('text')
+      .data(force.nodes())
+      .enter()
+      .append('text')
+      .text(function(d){ 
+        return d.country; 
+       })
+      .style("text-anchor", "middle")
+      .attr('font-size', function(d){
+        return 9*d.wins;
+       })
+      .style("fill", function(d,i){ 
+        return (d.zone == '2nd Floor')? '#6e0acc' : '#f57931';
+       });
+
+
+
+force.on('tick', function(e) {
+
+    var gravity = 0.2;
+    var k = gravity * e.alpha;
+
+    work_spots.forEach(function(o, i) {
+      o.y += (spots_chart.focus(o.zone).y - o.y) * k;
+      o.x += (spots_chart.focus(o.zone).x - o.x) * k;
+    });
+
+    node_shape.attr('cx', function(d) { 
+            return d.x; 
+         })
+        .attr('cy', function(d) { 
+            return d.y; 
+         });
+
+    node_text.attr('x', function(d) { 
+            return d.x; 
+         })
+        .attr('y', function(d) { 
+            return d.y; 
+         });
+          
+});
+
+
+force.start();
+
+
+
+
+  </script>
+<html> 
