@@ -1365,41 +1365,6 @@
             "size": "extralarge"
           }
         ]
-      },
-      {
-        "name": "Cold Spot",
-        "duration": "127",
-        "playcount": "11064249",
-        "listeners": "951482",
-        "mbid": "773a1557-a974-4f1e-978e-c240be4c3cb8",
-        "url": "http://www.last.fm/music/The+xx/_/Intro",
-        "streamable": {
-          "#text": "0",
-          "fulltrack": "0"
-        },
-        "artist": {
-          "name": "Zone D1.02",
-          "mbid": "c5c2ea1c-4bde-4f4d-bd0b-47b200bf99d6",
-          "url": "http://www.last.fm/music/The+xx"
-        },
-        "image": [
-          {
-            "#text": "http://img2-ak.lst.fm/i/u/34s/d35e6f33248e4079b5e8ee98f5c21708.png",
-            "size": "small"
-          },
-          {
-            "#text": "http://img2-ak.lst.fm/i/u/64s/d35e6f33248e4079b5e8ee98f5c21708.png",
-            "size": "medium"
-          },
-          {
-            "#text": "http://img2-ak.lst.fm/i/u/174s/d35e6f33248e4079b5e8ee98f5c21708.png",
-            "size": "large"
-          },
-          {
-            "#text": "http://img2-ak.lst.fm/i/u/300x300/d35e6f33248e4079b5e8ee98f5c21708.png",
-            "size": "extralarge"
-          }
-        ]
       }
     ],
     "@attr": {
